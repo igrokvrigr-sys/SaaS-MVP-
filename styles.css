@@ -1,7 +1,0 @@
-body { font-family: sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
-input, button { display: block; margin: 10px 0; padding: 10px; width: 100%; }
-.hidden { display: none; }
-.card { border: 1px solid #ccc; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
-.stat-box { background: #f0f0f0; padding: 15px; margin: 10px 0; border-radius: 5px; }
-h1 { color: #333; }
-.error { color: red; }
