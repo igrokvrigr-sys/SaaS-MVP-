@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Аналитика ИП - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Подключаем PapaParse для чтения CSV -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+</head>
+<body>
+    <!-- Если пользователь не авторизован, скрипт его выкинет, но покажем заглушку -->
+    <div id="app" style="display:none;">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+            <h2 id="userEmail">Загрузка...</h2>
+            <button id="logoutBtn" style="width: auto;">Выйти</button>
+        </div>
+
+        <div class="card">
+            <h3>📂 Загрузить отчет (CSV)</h3>
+            <p>Формат: Дата, Тип (Доход/Расход), Сумма</p>
+            <input type="file" id="csvFile" accept=".csv">
+        </div>
+
+        <div id="results" class="card hidden">
+            <h3>📊 Результаты за месяц</h3>
+            <div class="stat-box">💰 Доходы: <strong id="totalIncome">0</strong></div>
+            <div class="stat-box">💸 Расходы: <strong id="totalExpense">0</strong></div>
+            <div class="stat-box">📈 Прибыль: <strong id="netProfit" style="font-size: 1.2em;">0</strong></div>
+            <div class="stat-box">percent Маржинальность: <strong id="margin">0%</strong></div>
+        </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>

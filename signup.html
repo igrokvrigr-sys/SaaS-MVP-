@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация - SaaS MVP</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="card">
+        <h1>Регистрация</h1>
+        <input type="email" id="email" placeholder="Email">
+        <input type="password" id="password" placeholder="Пароль">
+        <button id="signupBtn">Зарегистрироваться</button>
+        <p id="message"></p>
+        <a href="login.html">Уже есть аккаунт? Войти</a>
+    </div>
+
+    <script type="module">
+        import { supabase } from './supabaseClient.js'
+
+        const signupBtn = document.getElementById('signupBtn')
+        const message = document.getElementById('message')
+
+        signupBtn.addEventListener('click', async () => {
+            const email = document.getElementById('email').value
+            const password = document.getElementById('password').value
+
+            const { data, error } = await supabase.auth.signUp({
+                email: email,
+                password: password,
+            })
+
+            if (error) {
+                message.textContent = 'Ошибка: ' + error.message
+                message.className = 'error'
+            } else {
+                message.textContent = 'Успешно! Проверьте почту или войдите.'
+                message.style.color = 'green'
+            }
+        })
+    </script>
+</body>
+</html>
